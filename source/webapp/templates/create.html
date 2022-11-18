@@ -1,33 +1,32 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create</title>
-</head>
-<a href="{% url 'index' %}">Home</a>
+{% extends 'base.html' %}
 
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'exercise_add' %}">Create new exercise</a>
+    </li>
+{% endblock %}
+
+{% block content %}
 <h2>Create Exercise</h2>
 <form action="" method="POST">
     {% csrf_token %}
-    <label>Статус:</label>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Название</label>
+    <input type="text" name="title" required>
+    </div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Описание:</label>
+    <textarea name="description"></textarea>
+</div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Дата выполнения</label>
+        <input type="text" name="todo_date">    </div>
     <select name="status">
         {% for key, value in statuses %}
             <option value="{{ key }}">{{ value }}</option>
         {% endfor %}
     </select>
     <br>
-    <label>Название</label>
-    <input type="text" name="title" required>
-    <br>
-    <label>Описание: </label>
-    <textarea name="description"></textarea>
-    <br>
-    <label>Дата выполнения</label>
-    <input type="text" name="todo_date">
-    <br>
-    <input type="submit" value="Create">
+    <input type="submit" class="secondary" value="Create">
 </form>
-</body>
-</html>
+{% endblock %}

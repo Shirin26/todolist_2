@@ -1,18 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Exercise</title>
-</head>
-<body>
-<a href="{% url 'index' %}">Home</a>
-<h1>Exercise</h1>
-<h2>Название: {{ exercise.title }}</h2>
-<p>Статус: {{ exercise.get_status_display }}</p>
-<p style="white-space: pre-wrap">Описание: {{ exercise.description }}</p>
-<p>Дата выполнения: {{ exercise.todo_date }}</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'exercise_add' %}">Create new exercise</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <h1>Exercise</h1>
+<div class="card w-50">
+  <div class="card-body">
+    <h5 class="card-title">{{ exercise.title }}</h5>
+    <p class="card-text" style="white-space: pre-wrap">Описание: {{ exercise.description }}</p>
+    <p class="card-text">Статус: {{ exercise.get_status_display }}</p>
+      <p class="card-text">Дата выполнения: {{ exercise.todo_date }}</p>
+  </div>
+</div>
+{%  endblock %}
