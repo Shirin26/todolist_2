@@ -5,7 +5,8 @@
     "fields": {
         "title": "Exercises 2",
         "status": "new",
-        "todo_date": "2022-12-12"
+        "todo_date": "2022-12-12",
+        "description": "sdgsdgsdgsdgsdg"
     }
 },
 {
@@ -14,7 +15,8 @@
     "fields": {
         "title": "Exercises 3",
         "status": "new",
-        "todo_date": "2023-04-04"
+        "todo_date": "2023-04-04",
+        "description": "gfhfghghgh"
     }
 },
 {
@@ -23,7 +25,8 @@
     "fields": {
         "title": "Exercises 5",
         "status": "done",
-        "todo_date": null
+        "todo_date": null,
+        "description": "k;kl;kl;kl;"
     }
 },
 {
@@ -32,7 +35,8 @@
     "fields": {
         "title": "Exercises 6",
         "status": "in_progress",
-        "todo_date": "2023-05-05"
+        "todo_date": "2023-05-05",
+        "description": "L:?L;L:"
     }
 },
 {
@@ -41,7 +45,8 @@
     "fields": {
         "title": "zczczc",
         "status": "new",
-        "todo_date": null
+        "todo_date": null,
+        "description": "kkkkkkkkkk"
     }
 },
 {
@@ -50,7 +55,8 @@
     "fields": {
         "title": "qeqweqw",
         "status": "new",
-        "todo_date": null
+        "todo_date": null,
+        "description": "jjjjjjjjjjjjjjjjjjjjjjjjjjjj"
     }
 },
 {
@@ -59,7 +65,8 @@
     "fields": {
         "title": "qeqweqw",
         "status": "new",
-        "todo_date": null
+        "todo_date": null,
+        "description": "hhhhhhh"
     }
 },
 {
@@ -68,7 +75,8 @@
     "fields": {
         "title": "pppp",
         "status": "new",
-        "todo_date": null
+        "todo_date": null,
+        "description": "yyyyyyyyyyyyyy"
     }
 },
 {
@@ -77,7 +85,8 @@
     "fields": {
         "title": "bnmbmvbm",
         "status": "done",
-        "todo_date": "2023-10-15"
+        "todo_date": "2023-10-15",
+        "description": "tttttttttt"
     }
 },
 {
@@ -86,7 +95,8 @@
     "fields": {
         "title": "hmvhmvh",
         "status": "done",
-        "todo_date": "2023-05-01"
+        "todo_date": "2023-05-01",
+        "description": "uuuuuuuuuuuu"
     }
 },
 {
