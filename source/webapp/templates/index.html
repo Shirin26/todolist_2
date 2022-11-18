@@ -9,17 +9,17 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-<h3><a href="/exercise/add/">Create new exercise</a></h3>
+<h3><a href="{% url 'exercise_add' %}">Create new exercise</a></h3>
 <h1>To-Do-List</h1>
 {% for ex in exercises %}
     <div class="card">
   <div class="card-header">
-      <h3 class="card-title"><a href="/exercise/{{ ex.pk }}/">{{ ex.title }}</a></h3>
+      <h3 class="card-title"><a href="{% url 'exercise_view' ex.pk %}">{{ ex.title }}</a></h3>
   </div>
   <div class="card-body">
     <h5 class="card-title">Статус: {{ ex.get_status_display }}</h5>
     <p class="card-text">Дата выполнения: {{ ex.todo_date | date:"d F Y" }}</p>
-  <form action="/?id={{ ex.id }}" method="POST">
+  <form action="{% url 'index' %}?id={{ ex.id }}" method="POST">
       {% csrf_token %}
       <input type="submit" value="delete">
   </form>

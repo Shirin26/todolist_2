@@ -19,7 +19,7 @@ from webapp.views import index_view, create_ex, exercise_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_view),
-    path('exercise/add/', create_ex),
-    path('exercise/<int:pk>/', exercise_view),
+    path('', index_view, name='index'),
+    path('exercise/add/', create_ex, name='exercise_add'),
+    path('exercise/<int:pk>/', exercise_view, name='exercise_view'),
 ]

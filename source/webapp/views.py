@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Exercise, STATUS_CHOICES
+from django.urls import reverse
 
 # Create your views here.
 def index_view(request):
@@ -7,6 +8,7 @@ def index_view(request):
         exercise_id = request.GET.get('id')
         exercise = Exercise.objects.get(id=exercise_id)
         exercise.delete()
+        return redirect('index')
 
     exercises = Exercise.objects.all()
     return render(request, 'index.html', {'exercises': exercises})
@@ -21,8 +23,9 @@ def create_ex(request, *args, **kwargs):
     elif request.method == 'POST':
         title = request.POST.get('title')
         status = request.POST.get('status')
+        description = request.POST.get('description')
         todo_date = request.POST.get('todo_date')
         if not todo_date:
             todo_date = None
-        new_ex = Exercise.objects.create(title=title, status=status, todo_date=todo_date)
-        return render(request, 'exercise.html', {'exercise': new_ex})
+        new_ex = Exercise.objects.create(title=title, status=status, todo_date=todo_date, description=description)
+        return redirect('exercise_view', pk=new_ex.pk)

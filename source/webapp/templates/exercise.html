@@ -8,7 +8,7 @@
     <title>Exercise</title>
 </head>
 <body>
-<a href="/">Home</a>
+<a href="{% url 'index' %}">Home</a>
 <h1>Exercise</h1>
 <h2>Название: {{ exercise.title }}</h2>
 <p>Статус: {{ exercise.get_status_display }}</p>

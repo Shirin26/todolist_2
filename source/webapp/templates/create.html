@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create</title>
 </head>
-<a href="/">Home</a>
+<a href="{% url 'index' %}">Home</a>
 
 <h2>Create Exercise</h2>
 <form action="" method="POST">
@@ -20,6 +20,9 @@
     <br>
     <label>Название</label>
     <input type="text" name="title" required>
+    <br>
+    <label>Описание: </label>
+    <textarea name="description"></textarea>
     <br>
     <label>Дата выполнения</label>
     <input type="text" name="todo_date">
