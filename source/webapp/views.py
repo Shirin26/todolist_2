@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from webapp.models import Exercise, STATUS_CHOICES
 
 # Create your views here.
@@ -10,6 +10,10 @@ def index_view(request):
 
     exercises = Exercise.objects.all()
     return render(request, 'index.html', {'exercises': exercises})
+
+def exercise_view(request, pk):
+    exercise = get_object_or_404(Exercise, pk=pk)
+    return render(request, 'exercise.html', {'exercise': exercise})
 
 def create_ex(request, *args, **kwargs):
     if request.method == 'GET':
