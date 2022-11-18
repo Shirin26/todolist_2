@@ -3,6 +3,11 @@ from webapp.models import Exercise, STATUS_CHOICES
 
 # Create your views here.
 def index_view(request):
+    if request.method == 'POST':
+        exercise_id = request.GET.get('id')
+        exercise = Exercise.objects.get(id=exercise_id)
+        exercise.delete()
+
     exercises = Exercise.objects.all()
     return render(request, 'index.html', {'exercises': exercises})
 

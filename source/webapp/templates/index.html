@@ -19,6 +19,10 @@
   <div class="card-body">
     <h5 class="card-title">Статус: {{ ex.get_status_display }}</h5>
     <p class="card-text">Дата выполнения: {{ ex.todo_date | date:"d F Y" }}</p>
+  <form action="/?id={{ ex.id }}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="delete">
+  </form>
   </div>
 </div>
     <br>
