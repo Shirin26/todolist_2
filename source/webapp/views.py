@@ -25,7 +25,30 @@ def create_ex(request, *args, **kwargs):
         status = request.POST.get('status')
         description = request.POST.get('description')
         todo_date = request.POST.get('todo_date')
+
         if not todo_date:
             todo_date = None
+
         new_ex = Exercise.objects.create(title=title, status=status, todo_date=todo_date, description=description)
         return redirect('exercise_view', pk=new_ex.pk)
+
+def exercise_update_view(request, pk):
+    exercise = get_object_or_404(Exercise, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'exercise_update.html', {'exercise': exercise})
+    elif request.method == 'POST':
+        exercise.title = request.POST.get('title')
+        exercise.status = request.POST.get('status')
+        exercise.description = request.POST.get('description')
+        exercise.todo_date = request.POST.get('todo_date')
+        exercise.save()
+        return redirect('exercise_view', pk=exercise.pk)
+
+def exercise_delete_view(request, pk):
+    exercise = get_object_or_404(Exercise, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'exercise_delete.html', {'exercise': exercise})
+    elif request.method == 'POST':
+        exercise.delete()
+        return redirect('index')
+
