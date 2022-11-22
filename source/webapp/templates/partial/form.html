@@ -1,0 +1,20 @@
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Название</label>
+        <input type="text" name="title" value="{{ exercise.title }}">
+        </div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Описание:</label>
+    <textarea name="description">{{ exercise.description }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Дата выполнения</label>
+        <input type="text" name="title" value="{{ exercise.todo_date }}">
+    </div>
+    <select name="status">
+        {% for key, value in exercise.status %}
+            <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <input type="submit" class="secondary" value="{{ button_text }}"/>
