@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Exercise
 from webapp.forms import ExerciseForm
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -40,28 +40,34 @@ class CreateExercise(TemplateView):
             return self.render_to_response(context)
 
 
-def exercise_update_view(request, pk):
-    exercise = get_object_or_404(Exercise, pk=pk)
-    if request.method == 'GET':
+class UpdateExercise(View):
+
+    def get(self, request, *args, **kwargs):
+        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
         form = ExerciseForm(initial={
             'title': exercise.title,
+            'description': exercise.description,
             'status': exercise.status,
-            'todo_date': exercise.todo_date,
-            'description': exercise.description
+            'type': exercise.type
         })
-        return render(request, 'exercise_update.html', {'statuses': '', 'form': form})
-    elif request.method == 'POST':
-        if request.method == 'POST':
-            form = ExerciseForm(data=request.POST)
-            if form.is_valid():
-                exercise.title = form.cleaned_data.get('title')
-                exercise.status = form.cleaned_data.get('status')
-                exercise.description = form.cleaned_data.get('description')
-                exercise.todo_date = form.cleaned_data.get('todo_date')
-                exercise.save()
-                return redirect('exercise_view', pk=exercise.pk)
-            else:
-                return render(request, 'exercise_update.html', {'statuses': '', 'form': form})
+        return render(request, 'exercise_update.html', {'form': form, 'exercise': exercise})
+
+
+    def post(self, request, *args, **kwargs):
+        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
+        form = ExerciseForm(data=request.POST)
+        if form.is_valid():
+            exercise.title = form.cleaned_data['title']
+            exercise.description = form.cleaned_data['description']
+            exercise.status = form.cleaned_data['status']
+            exercise.type= form.cleaned_data['type']
+            exercise.save()
+            return redirect('exercise_view', pk=exercise.pk)
+        else:
+            return render(request, 'exercise_update.html', {'form': form, 'exercise': exercise})
+
+
+
 
 def exercise_delete_view(request, pk):
     exercise = get_object_or_404(Exercise, pk=pk)
