@@ -14,13 +14,9 @@
           <h3 class="card-title"><a href="{% url 'exercise_view' ex.pk %}">{{ ex.title }}</a></h3>
       </div>
       <div class="card-body">
-        <h5 class="card-title">Статус: {{ ex.get_status_display }}</h5>
-        <p class="card-text">Дата выполнения: {{ ex.todo_date | date:"d F Y" }}</p>
-      <form action="{% url 'index' %}?id={{ ex.id }}" method="POST">
-          {% csrf_token %}
-          <input type="submit" value="delete">
-      </form>
-  </div>
+        <h5 class="card-title">Статус: {{ ex.status.name }}</h5>
+        <p class="card-text">Тип: {{ ex.type.name }}</p>
+      </div>
 </div>
     <br>
 {% endfor %}
