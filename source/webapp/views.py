@@ -67,13 +67,14 @@ class UpdateExercise(View):
             return render(request, 'exercise_update.html', {'form': form, 'exercise': exercise})
 
 
-
-
-def exercise_delete_view(request, pk):
-    exercise = get_object_or_404(Exercise, pk=pk)
-    if request.method == 'GET':
+class DeleteExercise(View):
+    def get(self, request, *args, **kwargs):
+        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
         return render(request, 'exercise_delete.html', {'exercise': exercise})
-    elif request.method == 'POST':
+
+    def post(self, request, *args, **kwargs):
+        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
         exercise.delete()
         return redirect('index')
+
 

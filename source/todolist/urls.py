@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import exercise_delete_view, IndexView, ExerciseView, CreateExercise, UpdateExercise
+from webapp.views import IndexView, ExerciseView, CreateExercise, UpdateExercise, DeleteExercise
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,6 +23,6 @@ urlpatterns = [
     path('exercise/add/', CreateExercise.as_view(), name='exercise_add'),
     path('exercise/<int:pk>/', ExerciseView.as_view(), name='exercise_view'),
     path('exercise/<int:pk>/update/', UpdateExercise.as_view(), name='exercise_update'),
-    path('exercise/<int:pk>/delete/', exercise_delete_view, name='exercise_delete'),
+    path('exercise/<int:pk>/delete/', DeleteExercise.as_view(), name='exercise_delete'),
 
 ]

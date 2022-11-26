@@ -12,7 +12,7 @@
     <h1>Are you sure want to delete exercise "{{ exercise.title }}"?</h1>
     <form method="POST" action="{% url "exercise_delete" exercise.pk %}" class="text-center">
         {% csrf_token %}
-        <p><input type="submit" value="Confirm"></p>
-        <p><a href="{% url "exercise_view" exercise.pk %}">Cancel</a></p>
+        <p><input type="submit" class="btn btn-danger" value="Confirm"></p>
+        <p><a class="btn btn-success" href="{% url "exercise_view" exercise.pk %}">Cancel</a></p>
     </form>
 {% endblock %}
