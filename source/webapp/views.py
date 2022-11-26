@@ -11,6 +11,12 @@ class IndexView(TemplateView):
         context['exercises'] = Exercise.objects.all()
         return context
 
+    def post(self, request, *args, **kwargs):
+        for exercise_pk in request.POST.getlist('exercises', []):
+            Exercise.objects.get(pk=exercise_pk).delete()
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
 
 class ExerciseView(TemplateView):
     template_name = 'exercise.html'
@@ -60,7 +66,7 @@ class UpdateExercise(View):
             exercise.title = form.cleaned_data['title']
             exercise.description = form.cleaned_data['description']
             exercise.status = form.cleaned_data['status']
-            exercise.type= form.cleaned_data['type']
+            exercise.type = form.cleaned_data['type']
             exercise.save()
             return redirect('exercise_view', pk=exercise.pk)
         else:
