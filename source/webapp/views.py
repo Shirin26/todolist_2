@@ -56,7 +56,7 @@ class UpdateExercise(View):
             'title': exercise.title,
             'description': exercise.description,
             'status': exercise.status,
-            'type': exercise.type
+            'types': exercise.types.all()
         })
         return render(request, 'exercise_update.html', {'form': form, 'exercise': exercise})
 
@@ -68,8 +68,9 @@ class UpdateExercise(View):
             exercise.title = form.cleaned_data['title']
             exercise.description = form.cleaned_data['description']
             exercise.status = form.cleaned_data['status']
-            exercise.type = form.cleaned_data['type']
             exercise.save()
+            exercise.types.set(
+                form.cleaned_data['types'])
             return redirect('exercise_view', pk=exercise.pk)
         else:
             return render(request, 'exercise_update.html', {'form': form, 'exercise': exercise})
