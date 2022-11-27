@@ -20,7 +20,12 @@
     <h5 class="card-title">{{ exercise.title }}</h5>
     <p class="card-text" style="white-space: pre-wrap">Описание: {{ exercise.description }}</p>
     <p class="card-text">Статус: {{ exercise.status.name }}</p>
-      <p class="card-text">Тип: {{ exercise.type.name }}</p>
+      <p class="card-text">Тип:
+          {% for type in exercise.types.all %}
+              {{ type.name }}
+              {% if not forloop.last %}
+                  ,{% endif %}
+          {% endfor %}</p>
   </div>
 </div>
 {%  endblock %}

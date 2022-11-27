@@ -3,7 +3,7 @@ from webapp.models import Exercise, Status, Type
 # Register your models here.
 
 class ExerciseAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'description', 'status', 'type']
+    list_display = ['id', 'title', 'description', 'status']
     list_filter = ['status']
     search_fields = ['title']
     exclude = []
