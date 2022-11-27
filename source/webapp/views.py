@@ -38,7 +38,9 @@ class CreateExercise(TemplateView):
     def post(self, request, *args, **kwargs):
         form = ExerciseForm(data=request.POST)
         if form.is_valid():
+            types = form.cleaned_data.pop('types')
             exercise = Exercise.objects.create(**form.cleaned_data)
+            exercise.types.set(types)
             return redirect('exercise_view', pk=exercise.pk)
         else:
             context = self.get_context_data(**kwargs)
