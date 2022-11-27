@@ -7,4 +7,5 @@ class ExerciseForm(forms.Form):
     status = forms.ModelChoiceField(queryset=Status.objects.all(), required=True, label='Status')
     types = forms.ModelMultipleChoiceField(
         queryset=Type.objects.all(),
-        required=False, label='Типы')
+        required=False, label='Типы',
+        widget=widgets.CheckboxSelectMultiple)
