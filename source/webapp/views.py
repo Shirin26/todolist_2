@@ -1,7 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, \
+    get_object_or_404, redirect, reverse
 from webapp.models import Exercise
 from webapp.forms import ExerciseForm
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView, \
+    View, FormView
+from webapp.base_views import FormView as \
+    CustomFormView
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -26,54 +30,49 @@ class ExerciseView(TemplateView):
         context['exercise'] = get_object_or_404(Exercise, pk=kwargs['pk'])
         return context
 
+class ExerciseCreateView(CustomFormView):
+    template_name = "create.html"
+    form_class = ExerciseForm
 
-class CreateExercise(TemplateView):
-    template_name = 'create.html'
+    def get_redirect_url(self):
+        return reverse('exercise_view',
+                       kwargs={'pk':
+                                   self.exercise.pk})
+
+    def form_valid(self, form):
+        self.exercise = form.save()
+        return super().form_valid(form)
+
+class ExerciseUpdateView(FormView):
+    template_name = 'exercise_update.html'
+    form_class = ExerciseForm
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Exercise, pk=pk)
+
+    def dispatch(self, request, *args, **kwargs):
+        self.exercise = self.get_object()
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = ExerciseForm()
+        context = super().get_context_data()
+        context['exercise'] = self.exercise
         return context
 
-    def post(self, request, *args, **kwargs):
-        form = ExerciseForm(data=request.POST)
-        if form.is_valid():
-            types = form.cleaned_data.pop('types')
-            exercise = Exercise.objects.create(**form.cleaned_data)
-            exercise.types.set(types)
-            return redirect('exercise_view', pk=exercise.pk)
-        else:
-            context = self.get_context_data(**kwargs)
-            context['form'] = form
-            return self.render_to_response(context)
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'] = self.exercise
+        return kwargs
 
+    def form_valid(self, form):
+        self.exercise = form.save()
+        return super().form_valid(form)
 
-class UpdateExercise(View):
-
-    def get(self, request, *args, **kwargs):
-        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
-        form = ExerciseForm(initial={
-            'title': exercise.title,
-            'description': exercise.description,
-            'status': exercise.status,
-            'types': exercise.types.all()
-        })
-        return render(request, 'exercise_update.html', {'form': form, 'exercise': exercise})
-
-
-    def post(self, request, *args, **kwargs):
-        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
-        form = ExerciseForm(data=request.POST)
-        if form.is_valid():
-            exercise.title = form.cleaned_data['title']
-            exercise.description = form.cleaned_data['description']
-            exercise.status = form.cleaned_data['status']
-            exercise.save()
-            exercise.types.set(
-                form.cleaned_data['types'])
-            return redirect('exercise_view', pk=exercise.pk)
-        else:
-            return render(request, 'exercise_update.html', {'form': form, 'exercise': exercise})
+    def get_success_url(self):
+        return reverse('exercise_view',
+                       kwargs={'pk':
+                                   self.exercise.pk})
 
 
 class DeleteExercise(View):

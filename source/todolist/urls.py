@@ -15,14 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import IndexView, ExerciseView, CreateExercise, UpdateExercise, DeleteExercise
+from webapp.views import IndexView, \
+    ExerciseView, ExerciseCreateView, ExerciseUpdateView, \
+    DeleteExercise
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('exercise/add/', CreateExercise.as_view(), name='exercise_add'),
+    path('exercise/add/', ExerciseCreateView.as_view(),
+         name='exercise_add'),
     path('exercise/<int:pk>/', ExerciseView.as_view(), name='exercise_view'),
-    path('exercise/<int:pk>/update/', UpdateExercise.as_view(), name='exercise_update'),
+    path('exercise/<int:pk>/update/',
+         ExerciseUpdateView.as_view(), name='exercise_update'),
     path('exercise/<int:pk>/delete/', DeleteExercise.as_view(), name='exercise_delete'),
 
 ]
