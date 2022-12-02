@@ -1,0 +1,19 @@
+from webapp.models import Exercise, Status, Type
+from datetime import timedelta, datetime
+from django.db.models import Q
+
+cor_date = datetime.now() - timedelta(days=30)
+cor_ex = Exercise.objects.filter(updated_at__date__gt=cor_date) & Exercise.objects.filter(status__name__iexact='done')
+cor_ex.values('id', 'title', 'types__name', 'status__name')
+cor_ex.count()
+
+s_1 = Q(status__name__iexact='new') | Q(status__name__iexact='in progress')
+t_1 = Q(types__name__iexact='enhancement') | Q(types__name__iexact='Task')
+clean_result = Exercise.objects.filter(s_1 & t_1).distinct()
+clean_result.count()
+
+ex_1 = Exercise.objects.filter(title__icontains='bug') | Exercise.objects.filter(types__name='Bag')
+ex_2 = Exercise.objects.exclude(status__name__iexact='done')
+ex_3 = ex_1 & ex_2
+ex_3.values('id', 'title', 'types__name', 'status__name')
+ex_3.count()
