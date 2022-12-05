@@ -266,11 +266,82 @@
     }
 },
 {
+    "model": "webapp.exercise",
+    "pk": 27,
+    "fields": {
+        "title": "Yato",
+        "description": "zcxczxcxcxcvbnvbvbmm",
+        "status": 1,
+        "created_at": "2022-12-04T17:07:57.933Z",
+        "updated_at": "2022-12-04T17:07:57.933Z",
+        "types": [
+            7,
+            9
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 28,
+    "fields": {
+        "title": "For homework53",
+        "description": "sdsdfsdsdfsd",
+        "status": 2,
+        "created_at": "2022-12-05T14:12:30.252Z",
+        "updated_at": "2022-12-05T14:12:30.252Z",
+        "types": [
+            7
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 29,
+    "fields": {
+        "title": "Rrrrrrrrrrrr",
+        "description": "rrrrrrrrrrrrrr",
+        "status": 2,
+        "created_at": "2022-12-05T16:34:01.270Z",
+        "updated_at": "2022-12-05T16:34:01.270Z",
+        "types": [
+            8
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 30,
+    "fields": {
+        "title": "Exercise 100",
+        "description": "SACsdassfsfaafa",
+        "status": 1,
+        "created_at": "2022-12-05T17:04:58.392Z",
+        "updated_at": "2022-12-05T17:04:58.392Z",
+        "types": [
+            7
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 31,
+    "fields": {
+        "title": "Exercise 101",
+        "description": "fgdgdfgdfgdfgfd",
+        "status": 2,
+        "created_at": "2022-12-05T17:05:11.719Z",
+        "updated_at": "2022-12-05T17:05:11.719Z",
+        "types": [
+            8
+        ]
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$390000$rT4nu1URu3kwpkX70XHoCs$386zThIAiJm5rmUufo4AAAyDtNn6WB8XgbtnBUBKj6E=",
-        "last_login": "2022-12-02T06:45:25.905Z",
+        "last_login": "2022-12-05T16:56:36.035Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
