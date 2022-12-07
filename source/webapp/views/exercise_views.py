@@ -6,11 +6,12 @@ from webapp.models import Exercise
 from webapp.forms import ExerciseForm, SimpleSearchForm
 from django.views.generic import TemplateView, \
     View, FormView, ListView
-from webapp.base_views import FormView as \
-    CustomFormView, ListView as CustomListView
+from .base_views import FormView as \
+    CustomFormView
+
 
 class IndexView(ListView):
-    template_name = 'index.html'
+    template_name = 'exercise/index.html'
     context_object_name = 'exercises'
     model = Exercise
     ordering = ('-created_at',)
@@ -47,7 +48,7 @@ class IndexView(ListView):
 
 
 class ExerciseView(TemplateView):
-    template_name = 'exercise.html'
+    template_name = 'exercise/exercise.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -55,7 +56,7 @@ class ExerciseView(TemplateView):
         return context
 
 class ExerciseCreateView(CustomFormView):
-    template_name = "create.html"
+    template_name = "exercise/create.html"
     form_class = ExerciseForm
 
     def get_redirect_url(self):
@@ -68,7 +69,7 @@ class ExerciseCreateView(CustomFormView):
         return super().form_valid(form)
 
 class ExerciseUpdateView(FormView):
-    template_name = 'exercise_update.html'
+    template_name = 'exercise/exercise_update.html'
     form_class = ExerciseForm
 
     def get_object(self):
@@ -102,7 +103,8 @@ class ExerciseUpdateView(FormView):
 class DeleteExercise(View):
     def get(self, request, *args, **kwargs):
         exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
-        return render(request, 'exercise_delete.html', {'exercise': exercise})
+        return render(request,
+                      'exercise/exercise_delete.html', {'exercise': exercise})
 
     def post(self, request, *args, **kwargs):
         exercise = get_object_or_404(Exercise, pk=kwargs['pk'])

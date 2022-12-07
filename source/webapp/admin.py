@@ -1,5 +1,6 @@
 from django.contrib import admin
-from webapp.models import Exercise, Status, Type
+from webapp.models import Exercise, Status, \
+    Type, Project
 # Register your models here.
 
 class ExerciseAdmin(admin.ModelAdmin):
@@ -11,3 +12,4 @@ class ExerciseAdmin(admin.ModelAdmin):
 admin.site.register(Exercise, ExerciseAdmin)
 admin.site.register(Status)
 admin.site.register(Type)
+admin.site.register(Project)
