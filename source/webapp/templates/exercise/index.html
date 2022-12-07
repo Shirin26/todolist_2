@@ -5,8 +5,13 @@
         <a class="nav-link" href="{% url 'exercise_add' %}">Create new exercise</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="
+{% url 'exercise_project_index' %}">Projects</a>
+    </li>
+    <li class="nav-item">
         {% include 'partial/simple_search.html' %}
     </li>
+
 {% endblock %}
 
 {%  block content %}
@@ -24,6 +29,8 @@
                             {% if not forloop.last %}
                                 ,{% endif %}
                         {% endfor %}</p>
+                        <p
+                                class="card-text">Проект: {{ ex.project.name }}
                 </div>
             </div>
         </div>

@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from webapp.views import IndexView, \
     ExerciseView, ExerciseCreateView, ExerciseUpdateView, \
-    DeleteExercise
+    DeleteExercise, IndexProjectViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
+    path('exercise/project/',
+         IndexProjectViews.as_view(),
+         name='exercise_project_index'),
     path('exercise/add/', ExerciseCreateView.as_view(),
          name='exercise_add'),
     path('exercise/<int:pk>/', ExerciseView.as_view(), name='exercise_view'),
