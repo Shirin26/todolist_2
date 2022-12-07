@@ -2,7 +2,9 @@
 
 {#{% block nav %}#}
 {#    <li class="nav-item">#}
-{#        <a class="nav-link" href="{% url 'exercise_add' %}">Create new exercise</a>#}
+{#        <a class="nav-link" href="#}
+{#{% url 'project_add' %}">Create new#}
+{#        project</a>#}
 {#    </li>#}
 {#    <li class="nav-item">#}
 {#        {% include 'partial/simple_search.html' %}#}
@@ -16,18 +18,11 @@
         <div class="col-4 my-3">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-{#                    <h5 class="card-title"><input class="form-check-input" name="exercises" type="checkbox" value="{{ ex.pk }}"><a href="{% url 'exercise_view' ex.pk %}">{{ ex.title }}</a></h5>#}
-                    <h5 class="card-title">Проект:
-                        {{ project.name }}</h5>
+                    <h5 class="card-title"><a href="{% url 'project_view' project.pk %}"
+                    >{{ project.name }}</a></h5>
                     <p class="card-title">Описание проекта:
                         {{ project.project_description }}</p>
-{#                      <p class="card-text">Задачи:#}
-{#                        {% for type in ex.types.all %}#}
-{#                            {{ type.name }}#}
-{#                            {% if not forloop.last %}#}
-{#                                ,{% endif %}#}
-{#                        {% endfor %}</p>#}
-                </div>
+
             </div>
         </div>
     {% endfor %}

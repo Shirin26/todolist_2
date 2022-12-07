@@ -5,37 +5,16 @@
         <a class="nav-link" href="{% url 'exercise_add' %}">Create new exercise</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="
-{% url 'exercise_project_index' %}">Projects</a>
+        <a class="nav-link" href="{% url 'exercise_project_index' %}">Projects</a>
     </li>
     <li class="nav-item">
         {% include 'partial/simple_search.html' %}
     </li>
-
 {% endblock %}
 
 {%  block content %}
     <h1>Exercises</h1>
-    <div class="row">
-    {% for ex in exercises %}
-        <div class="col-4 my-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><input class="form-check-input" name="exercises" type="checkbox" value="{{ ex.pk }}"><a href="{% url 'exercise_view' ex.pk %}">{{ ex.title }}</a></h5>
-                    <h5 class="card-title">Статус: {{ ex.status.name }}</h5>
-                      <p class="card-text">Тип:
-                        {% for type in ex.types.all %}
-                            {{ type.name }}
-                            {% if not forloop.last %}
-                                ,{% endif %}
-                        {% endfor %}</p>
-                        <p
-                                class="card-text">Проект: {{ ex.project.name }}
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
+    {% include 'partial/exercises.html' %}
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
     {% endif %}

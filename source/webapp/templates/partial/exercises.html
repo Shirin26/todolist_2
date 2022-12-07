@@ -1,0 +1,20 @@
+
+    <div class="row">
+    {% for ex in exercises %}
+        <div class="col-4 my-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+{#                    <h5 class="card-title"><input class="form-check-input" name="exercises" type="checkbox" value="{{ ex.pk }}"><a href="{% url 'exercise_view' ex.pk %}">{{ ex.title }}</a></h5>#}
+                    <h5 class="card-title"><a href="{% url 'exercise_view' ex.pk %}">{{ ex.title }}</a></h5>
+                    <h5 class="card-title">Статус: {{ ex.status.name }}</h5>
+                      <p class="card-text">Тип:
+                        {% for type in ex.types.all %}
+                            {{ type.name }}
+                            {% if not forloop.last %}
+                                ,{% endif %}
+                        {% endfor %}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
