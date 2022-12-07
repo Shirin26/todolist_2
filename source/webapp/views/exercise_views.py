@@ -2,13 +2,10 @@ from django.db.models import Q
 from django.utils.http import urlencode
 from django.shortcuts import render, \
     get_object_or_404, redirect, reverse
-from webapp.models import Exercise
+from webapp.models import Exercise, Project
 from webapp.forms import ExerciseForm, SimpleSearchForm
 from django.views.generic import TemplateView, \
-    View, FormView, ListView
-from .base_views import FormView as \
-    CustomFormView
-
+    View, FormView, ListView, CreateView
 
 class IndexView(ListView):
     template_name = 'exercise/index.html'
@@ -55,18 +52,22 @@ class ExerciseView(TemplateView):
         context['exercise'] = get_object_or_404(Exercise, pk=kwargs['pk'])
         return context
 
-class ExerciseCreateView(CustomFormView):
-    template_name = "exercise/create.html"
+
+class ProjectExerciseCreateView(CreateView):
+    template_name = 'exercise/create.html'
+    model = Exercise
     form_class = ExerciseForm
 
-    def get_redirect_url(self):
-        return reverse('exercise_view',
-                       kwargs={'pk':
-                                   self.exercise.pk})
+    def get_success_url(self):
+        return reverse('project_view', kwargs={
+            'pk': self.object.project.pk})
 
     def form_valid(self, form):
-        self.exercise = form.save()
+        project = get_object_or_404(Project,
+                                    pk=self.kwargs.get('pk'))
+        form.instance.project = project
         return super().form_valid(form)
+
 
 class ExerciseUpdateView(FormView):
     template_name = 'exercise/exercise_update.html'

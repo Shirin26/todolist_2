@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Project(models.Model):
@@ -12,6 +13,10 @@ class Project(models.Model):
     project_description = models.TextField(
         max_length=3000,
         verbose_name='Описание проекта')
+
+    def get_absolute_url(self):
+        return reverse('project_view',
+                       kwargs={'pk': self.pk})
 
 
 class Type(models.Model):

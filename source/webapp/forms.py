@@ -1,15 +1,6 @@
 from django import forms
 from django.forms import widgets, ValidationError
-from webapp.models import Type, Status, Exercise
-
-# class ExerciseForm(forms.Form):
-#     title = forms.CharField(max_length=100, required=True, label='Title')
-#     description = forms.CharField(max_length=3000, required=False, label='Description', widget=widgets.Textarea)
-#     status = forms.ModelChoiceField(queryset=Status.objects.all(), required=True, label='Status')
-#     types = forms.ModelMultipleChoiceField(
-#         queryset=Type.objects.all(),
-#         required=False, label='Типы',
-#         widget=widgets.CheckboxSelectMultiple)
+from webapp.models import Exercise, Project
 
 bad_words = ['shit', 'fuck', 'bitch', 'asshole']
 
@@ -20,7 +11,7 @@ class ExerciseForm(forms.ModelForm):
                   'status', 'types']
         widgets = {'types':
                        widgets.CheckboxSelectMultiple}
-        # error_messages
+
 
     def clean_title(self):
         title = self.cleaned_data['title']
@@ -38,6 +29,11 @@ class ExerciseForm(forms.ModelForm):
                            ValidationError(
                                "Please don't use bad words"))
         return description
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['start_date', 'end_date',
+                  'name', 'project_description']
 
 
 class SimpleSearchForm(forms.Form):

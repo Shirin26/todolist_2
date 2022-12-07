@@ -2,7 +2,13 @@
 
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="#">Create new project</a>
+        <a class="nav-link" href="
+{% url 'project_add' %}">Create new project</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="
+{% url 'project_exercise_add' project.pk %}">Create new
+            exercise</a>
     </li>
 {% endblock %}
 

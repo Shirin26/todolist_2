@@ -2,9 +2,6 @@
 
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'exercise_add' %}">Create new exercise</a>
-    </li>
-        <li class="nav-item">
         <a class="nav-link" href="{% url 'exercise_update' exercise.pk %}">Update exercise</a>
     </li>
     </li>
@@ -26,6 +23,8 @@
               {% if not forloop.last %}
                   ,{% endif %}
           {% endfor %}</p>
+    <p class="card-text">Проект:
+        {{ exercise.project.name }}</p>
   </div>
 </div>
 {%  endblock %}

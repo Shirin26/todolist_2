@@ -1,7 +1,6 @@
 from django.contrib import admin
 from webapp.models import Exercise, Status, \
     Type, Project
-# Register your models here.
 
 class ExerciseAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'description', 'status']

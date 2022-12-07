@@ -16,21 +16,49 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from webapp.views import IndexView, \
-    ExerciseView, ExerciseCreateView, ExerciseUpdateView, \
-    DeleteExercise, IndexProjectViews, ProjectView
+    ExerciseView, ExerciseUpdateView, \
+    DeleteExercise, IndexProjectViews, \
+    ProjectView, ProjectCreateView, \
+    ProjectExerciseCreateView
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', IndexView.as_view(), name='index'),
+#     path('project/',
+#          IndexProjectViews.as_view(),
+#          name='exercise_project_index'),
+#     path('project/add/',
+#          ProjectCreateView.as_view(),
+#          name='project_add'),
+#     path('exercise/<int:pk>/', ExerciseView.as_view(), name='exercise_view'),
+#     path('project/<int:pk>/',
+#          ProjectView.as_view(),
+#          name='project_view'),
+#     path('project/<int:pk>/exercise/add',
+#          ProjectExerciseCreateView.as_view(),
+#          name='project_exercise_add'),
+#     path('exercise/<int:pk>/update/',
+#          ExerciseUpdateView.as_view(), name='exercise_update'),
+#     path('exercise/<int:pk>/delete/', DeleteExercise.as_view(), name='exercise_delete'),
+#
+# ]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
-    path('project/',
-         IndexProjectViews.as_view(),
+    path('', IndexProjectViews.as_view(),
          name='exercise_project_index'),
-    path('exercise/add/', ExerciseCreateView.as_view(),
-         name='exercise_add'),
-    path('exercise/<int:pk>/', ExerciseView.as_view(), name='exercise_view'),
     path('project/<int:pk>/',
          ProjectView.as_view(),
          name='project_view'),
+    path('project/add/',
+         ProjectCreateView.as_view(),
+         name='project_add'),
+    path('project/<int:pk>/exercise/add',
+         ProjectExerciseCreateView.as_view(),
+         name='project_exercise_add'),
+    path('exercise/', IndexView.as_view(),
+         name='index'),
+    path('exercise/<int:pk>/', ExerciseView.as_view(), name='exercise_view'),
     path('exercise/<int:pk>/update/',
          ExerciseUpdateView.as_view(), name='exercise_update'),
     path('exercise/<int:pk>/delete/', DeleteExercise.as_view(), name='exercise_delete'),

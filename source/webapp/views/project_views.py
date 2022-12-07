@@ -1,8 +1,10 @@
 from webapp.models import Project
-from django.views.generic import ListView, DetailView
-from webapp.forms import SimpleSearchForm
+from django.views.generic import ListView, \
+    DetailView, CreateView
+from webapp.forms import SimpleSearchForm, ProjectForm
 from django.utils.http import urlencode
 from django.db.models import Q
+
 
 class IndexProjectViews(ListView):
     template_name = 'project/index_project.html'
@@ -58,3 +60,9 @@ class ProjectView(DetailView):
             '-created_at')
         context['exercises'] = exercises
         return context
+
+
+class ProjectCreateView(CreateView):
+    template_name = 'project/project_create.html'
+    model = Project
+    form_class = ProjectForm

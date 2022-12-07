@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
-{#{% block nav %}#}
-{#    <li class="nav-item">#}
-{#        <a class="nav-link" href="#}
-{#{% url 'project_add' %}">Create new#}
-{#        project</a>#}
-{#    </li>#}
-{#    <li class="nav-item">#}
-{#        {% include 'partial/simple_search.html' %}#}
-{#    </li>#}
-{#{% endblock %}#}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="
+{% url 'project_add' %}">Create new project</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="
+{% url 'index' %}">Exercises</a>
+    </li>
+{% endblock %}
 
 {%  block content %}
     <h1>Projects</h1>
@@ -18,16 +18,14 @@
         <div class="col-4 my-3">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{% url 'project_view' project.pk %}"
+                    <h5 class="card-title"><a
+                            href="
+{{ project.get_absolute_url }}"
                     >{{ project.name }}</a></h5>
                     <p class="card-title">Описание проекта:
                         {{ project.project_description }}</p>
-
             </div>
         </div>
     {% endfor %}
     </div>
-{#    {% if is_paginated %}#}
-{#        {% include 'partial/pagination.html' %}#}
-{#    {% endif %}#}
 {% endblock %}
