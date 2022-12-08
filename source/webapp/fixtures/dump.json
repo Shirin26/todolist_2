@@ -20,6 +20,26 @@
     }
 },
 {
+    "model": "webapp.project",
+    "pk": 10,
+    "fields": {
+        "start_date": "2023-10-10",
+        "end_date": null,
+        "name": "updated project",
+        "project_description": "vvvvvvvvvvvv"
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 12,
+    "fields": {
+        "start_date": "2022-10-15",
+        "end_date": null,
+        "name": "iiiiiiiiii",
+        "project_description": "iiiiiiiiiiii"
+    }
+},
+{
     "model": "webapp.type",
     "pk": 7,
     "fields": {
@@ -63,50 +83,17 @@
 },
 {
     "model": "webapp.exercise",
-    "pk": 12,
-    "fields": {
-        "title": "exercise 9",
-        "description": "rrrrrrrrrrrrr",
-        "status": 2,
-        "created_at": "2022-11-26T15:13:59.859Z",
-        "updated_at": "2022-11-30T12:08:34.776Z",
-        "project": 1,
-        "types": [
-            7,
-            9
-        ]
-    }
-},
-{
-    "model": "webapp.exercise",
     "pk": 13,
     "fields": {
         "title": "Exercise 15",
         "description": "tttttttt",
         "status": 1,
         "created_at": "2022-11-26T15:14:08.466Z",
-        "updated_at": "2022-11-30T17:04:22.649Z",
-        "project": 1,
+        "updated_at": "2022-12-07T06:47:02.115Z",
+        "project": 2,
         "types": [
             7,
             8
-        ]
-    }
-},
-{
-    "model": "webapp.exercise",
-    "pk": 14,
-    "fields": {
-        "title": "Exercise 1",
-        "description": "scs",
-        "status": 2,
-        "created_at": "2022-11-27T21:06:07.072Z",
-        "updated_at": "2022-12-01T18:21:43.597Z",
-        "project": 1,
-        "types": [
-            7,
-            8,
-            9
         ]
     }
 },
@@ -118,8 +105,8 @@
         "description": "zfzdfdfs",
         "status": 3,
         "created_at": "2022-11-27T21:06:26.592Z",
-        "updated_at": "2022-11-27T21:12:30.932Z",
-        "project": 1,
+        "updated_at": "2022-12-07T06:46:51.240Z",
+        "project": 2,
         "types": [
             7,
             9
@@ -134,8 +121,8 @@
         "description": "xdvdsf",
         "status": 1,
         "created_at": "2022-11-27T21:32:37.869Z",
-        "updated_at": "2022-11-27T21:32:37.869Z",
-        "project": 1,
+        "updated_at": "2022-12-07T06:46:45.597Z",
+        "project": 2,
         "types": [
             7,
             9
@@ -198,8 +185,8 @@
         "description": "SCSC",
         "status": 1,
         "created_at": "2022-11-30T12:01:39.599Z",
-        "updated_at": "2022-11-30T12:01:39.599Z",
-        "project": 1,
+        "updated_at": "2022-12-07T06:46:39.964Z",
+        "project": 2,
         "types": [
             9
         ]
@@ -272,29 +259,14 @@
 },
 {
     "model": "webapp.exercise",
-    "pk": 25,
-    "fields": {
-        "title": "Bug",
-        "description": "dgxdgsdgdg",
-        "status": 2,
-        "created_at": "2022-12-02T06:45:59.999Z",
-        "updated_at": "2022-12-02T08:26:50.115Z",
-        "project": 1,
-        "types": [
-            8
-        ]
-    }
-},
-{
-    "model": "webapp.exercise",
     "pk": 26,
     "fields": {
         "title": "Bug_2",
         "description": "dvsdgsdgsdg",
         "status": 1,
         "created_at": "2022-12-02T08:27:16.122Z",
-        "updated_at": "2022-12-02T08:27:16.122Z",
-        "project": 1,
+        "updated_at": "2022-12-07T06:46:33.704Z",
+        "project": 2,
         "types": [
             8
         ]
@@ -304,12 +276,12 @@
     "model": "webapp.exercise",
     "pk": 27,
     "fields": {
-        "title": "Yato",
+        "title": "Yato_updated",
         "description": "zcxczxcxcxcvbnvbvbmm",
         "status": 1,
         "created_at": "2022-12-04T17:07:57.933Z",
-        "updated_at": "2022-12-04T17:07:57.933Z",
-        "project": 1,
+        "updated_at": "2022-12-08T08:11:59.725Z",
+        "project": 2,
         "types": [
             7,
             9
@@ -324,25 +296,10 @@
         "description": "sdsdfsdsdfsd",
         "status": 2,
         "created_at": "2022-12-05T14:12:30.252Z",
-        "updated_at": "2022-12-05T14:12:30.252Z",
-        "project": 1,
+        "updated_at": "2022-12-07T06:46:21.518Z",
+        "project": 2,
         "types": [
             7
-        ]
-    }
-},
-{
-    "model": "webapp.exercise",
-    "pk": 29,
-    "fields": {
-        "title": "Rrrrrrrrrrrr",
-        "description": "rrrrrrrrrrrrrr",
-        "status": 2,
-        "created_at": "2022-12-05T16:34:01.270Z",
-        "updated_at": "2022-12-05T16:34:01.270Z",
-        "project": 1,
-        "types": [
-            8
         ]
     }
 },
@@ -351,11 +308,42 @@
     "pk": 30,
     "fields": {
         "title": "Exercise 100",
-        "description": "SACsdassfsfaafa",
+        "description": "SACsdassfsfaafa hgmgmhjghjh 11111",
         "status": 1,
         "created_at": "2022-12-05T17:04:58.392Z",
-        "updated_at": "2022-12-05T17:04:58.392Z",
-        "project": 1,
+        "updated_at": "2022-12-07T06:48:13.470Z",
+        "project": 2,
+        "types": [
+            7,
+            9
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 33,
+    "fields": {
+        "title": "For project 12",
+        "description": "xxxxxxxxxxxx",
+        "status": 3,
+        "created_at": "2022-12-07T15:42:51.356Z",
+        "updated_at": "2022-12-07T15:42:51.356Z",
+        "project": 12,
+        "types": [
+            9
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 34,
+    "fields": {
+        "title": "For project 12 (2)",
+        "description": "zxdvzdxv",
+        "status": 2,
+        "created_at": "2022-12-07T15:43:47.807Z",
+        "updated_at": "2022-12-07T15:43:47.807Z",
+        "project": 12,
         "types": [
             7
         ]
@@ -363,16 +351,31 @@
 },
 {
     "model": "webapp.exercise",
-    "pk": 31,
+    "pk": 35,
     "fields": {
-        "title": "Exercise 101",
-        "description": "fgdgdfgdfgdfgfd",
+        "title": "Updated exercise3",
+        "description": "Updated exercise2",
         "status": 2,
-        "created_at": "2022-12-05T17:05:11.719Z",
-        "updated_at": "2022-12-06T13:55:43.953Z",
-        "project": 2,
+        "created_at": "2022-12-07T15:47:41.046Z",
+        "updated_at": "2022-12-08T13:38:27.750Z",
+        "project": 10,
         "types": [
-            8
+            7
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 36,
+    "fields": {
+        "title": "Test 2",
+        "description": "k;jk;j;jk;kj;",
+        "status": 3,
+        "created_at": "2022-12-08T13:40:36.278Z",
+        "updated_at": "2022-12-08T13:40:36.278Z",
+        "project": 12,
+        "types": [
+            7
         ]
     }
 },
