@@ -14,6 +14,10 @@
                         {% endfor %}</p>
                         <p
                                 class="card-text">Проект: {{ ex.project.name }}</p>
+                        <a href="
+{% url 'exercise_update' ex.pk %}">Update</a>
+                        <a href="
+{% url 'exercise_delete' ex.pk %}">Delete</a>
                 </div>
             </div>
         </div>

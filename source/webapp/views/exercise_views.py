@@ -5,7 +5,7 @@ from django.shortcuts import render, \
 from webapp.models import Exercise, Project
 from webapp.forms import ExerciseForm, SimpleSearchForm
 from django.views.generic import TemplateView, \
-    View, FormView, ListView, CreateView
+    View, ListView, CreateView, UpdateView, DeleteView
 
 class IndexView(ListView):
     template_name = 'exercise/index.html'
@@ -45,7 +45,7 @@ class IndexView(ListView):
 
 
 class ExerciseView(TemplateView):
-    template_name = 'exercise/exercise.html'
+    template_name = 'exercise/exercise_view.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -69,47 +69,24 @@ class ProjectExerciseCreateView(CreateView):
         return super().form_valid(form)
 
 
-class ExerciseUpdateView(FormView):
+class ExerciseUpdateView(UpdateView):
+    model = Exercise
     template_name = 'exercise/exercise_update.html'
     form_class = ExerciseForm
-
-    def get_object(self):
-        pk = self.kwargs.get('pk')
-        return get_object_or_404(Exercise, pk=pk)
-
-    def dispatch(self, request, *args, **kwargs):
-        self.exercise = self.get_object()
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        context['exercise'] = self.exercise
-        return context
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['instance'] = self.exercise
-        return kwargs
-
-    def form_valid(self, form):
-        self.exercise = form.save()
-        return super().form_valid(form)
+    context_object_name = 'exercise'
 
     def get_success_url(self):
-        return reverse('exercise_view',
-                       kwargs={'pk':
-                                   self.exercise.pk})
+        return reverse('project_view', kwargs={
+            'pk': self.object.project.pk})
 
 
-class DeleteExercise(View):
+class ExerciseDeleteView(DeleteView):
+    model = Exercise
+
     def get(self, request, *args, **kwargs):
-        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
-        return render(request,
-                      'exercise/exercise_delete.html', {'exercise': exercise})
+        return self.delete(request, *args, **kwargs)
 
-    def post(self, request, *args, **kwargs):
-        exercise = get_object_or_404(Exercise, pk=kwargs['pk'])
-        exercise.delete()
-        return redirect('index')
-
+    def get_success_url(self):
+        return reverse('project_view', kwargs={
+            'pk': self.object.project.pk})
 
