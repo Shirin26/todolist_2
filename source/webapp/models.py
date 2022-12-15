@@ -15,7 +15,7 @@ class Project(models.Model):
         verbose_name='Описание проекта')
 
     def get_absolute_url(self):
-        return reverse('project_view',
+        return reverse('webapp:project_view',
                        kwargs={'pk': self.pk})
 
 

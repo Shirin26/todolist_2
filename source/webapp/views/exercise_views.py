@@ -1,7 +1,8 @@
+from django.contrib.auth.mixins import \
+    LoginRequiredMixin
 from django.db.models import Q
 from django.utils.http import urlencode
-from django.shortcuts import render, \
-    get_object_or_404, redirect, reverse
+from django.shortcuts import get_object_or_404, reverse
 from webapp.models import Exercise, Project
 from webapp.forms import ExerciseForm, SimpleSearchForm
 from django.views.generic import TemplateView, \
@@ -53,14 +54,15 @@ class ExerciseView(TemplateView):
         return context
 
 
-class ProjectExerciseCreateView(CreateView):
+class ProjectExerciseCreateView(
+    LoginRequiredMixin, CreateView):
     template_name = 'exercise/create.html'
     model = Exercise
     form_class = ExerciseForm
 
     def get_success_url(self):
-        return reverse('project_view', kwargs={
-            'pk': self.object.project.pk})
+        return reverse('webapp:project_view',
+                       kwargs={'pk': self.object.project.pk})
 
     def form_valid(self, form):
         project = get_object_or_404(Project,
@@ -69,24 +71,27 @@ class ProjectExerciseCreateView(CreateView):
         return super().form_valid(form)
 
 
-class ExerciseUpdateView(UpdateView):
+class ExerciseUpdateView(LoginRequiredMixin,
+                         UpdateView):
     model = Exercise
     template_name = 'exercise/exercise_update.html'
     form_class = ExerciseForm
     context_object_name = 'exercise'
 
     def get_success_url(self):
-        return reverse('project_view', kwargs={
+        return reverse('webapp:project_view', kwargs={
             'pk': self.object.project.pk})
 
 
-class ExerciseDeleteView(DeleteView):
+class ExerciseDeleteView(LoginRequiredMixin,
+                         DeleteView):
     model = Exercise
 
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('project_view', kwargs={
+        return reverse('webapp:project_view',
+                       kwargs={
             'pk': self.object.project.pk})
 

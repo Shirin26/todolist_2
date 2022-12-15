@@ -4,13 +4,13 @@
 
 {% block nav %}
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'exercise_view' exercise.pk %}">View</a>
+    <a class="nav-link" href="{% url 'webapp:exercise_view' exercise.pk %}">View</a>
     </li>
 {% endblock %}
 
 {% block content %}
     <h1>Are you sure want to delete exercise "{{ exercise.title }}"?</h1>
-    <form method="POST" action="{% url "exercise_delete" exercise.pk %}" class="text-center">
+    <form method="POST" action="{% url "webapp:exercise_delete" exercise.pk %}" class="text-center">
         {% csrf_token %}
         <p><input type="submit" class="btn btn-danger" value="Confirm"></p>
         <p><a class="btn btn-success" href="{% url "exercise_view" exercise.pk %}">Cancel</a></p>

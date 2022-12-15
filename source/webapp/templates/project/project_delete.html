@@ -5,7 +5,7 @@
 {% block nav %}
     <li class="nav-item">
     <a class="nav-link" href="
-{% url 'project_view' project.pk %}">View</a>
+{% url 'webapp:project_view' project.pk %}">View</a>
     </li>
 {% endblock %}
 
@@ -13,11 +13,11 @@
     <h1>Are you sure want to delete project "
         {{ project.name }}"?</h1>
     <form method="POST" action="
-{% url "project_delete" project.pk %}"
+{% url 'webapp:project_delete' project.pk %}"
           class="text-center">
         {% csrf_token %}
         <p><input type="submit" class="btn btn-danger" value="Confirm"></p>
         <p><a class="btn btn-success" href="
-{% url "project_view" project.pk %}">Cancel</a></p>
+{% url 'webapp:project_view' project.pk %}">Cancel</a></p>
     </form>
 {% endblock %}
