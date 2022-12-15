@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block nav %}
+    {% if request.user.is_autenticated %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'exercise_update' exercise.pk %}">Update exercise</a>
+        <a class="nav-link" href="{% url 'webapp:exercise_update' exercise.pk %}">Update exercise</a>
     </li>
     </li>
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'exercise_delete' exercise.pk %}">Delete exercise</a>
+        <a class="nav-link" href="{% url 'webapp:exercise_delete' exercise.pk %}">Delete exercise</a>
     </li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}

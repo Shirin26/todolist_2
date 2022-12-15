@@ -1,18 +1,21 @@
 from django.urls import reverse_lazy
-
+from django.shortcuts import redirect
 from webapp.models import Project
 from django.views.generic import ListView, \
     DetailView, CreateView, UpdateView, DeleteView
 from webapp.forms import SimpleSearchForm, ProjectForm
 from django.utils.http import urlencode
 from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IndexProjectViews(ListView):
     template_name = 'project/index_project.html'
     context_object_name = 'projects'
     model = Project
-    ordering = ('-start_date')
+    ordering = ('-start_date',)
+    paginate_by = 2
+    paginate_orphans = 2
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
@@ -64,20 +67,23 @@ class ProjectView(DetailView):
         return context
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin,
+                        CreateView):
     template_name = 'project/project_create.html'
     model = Project
     form_class = ProjectForm
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin,
+                        UpdateView):
     template_name = 'project/project_update.html'
     form_class = ProjectForm
     model = Project
     context_object_name = 'project'
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin,
+                        DeleteView):
     template_name = 'project/project_delete.html'
     model = Project
     context_object_name = 'project'

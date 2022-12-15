@@ -4,7 +4,7 @@
         <div class="col-4 my-3">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{% url 'exercise_view' ex.pk %}">{{ ex.title }}</a></h5>
+                    <h5 class="card-title"><a href="{% url 'webapp:exercise_view' ex.pk %}">{{ ex.title }}</a></h5>
                     <h5 class="card-title">Статус: {{ ex.status.name }}</h5>
                       <p class="card-text">Тип:
                         {% for type in ex.types.all %}
@@ -14,10 +14,12 @@
                         {% endfor %}</p>
                         <p
                                 class="card-text">Проект: {{ ex.project.name }}</p>
-                        <a href="
-{% url 'exercise_update' ex.pk %}">Update</a>
-                        <a href="
-{% url 'exercise_delete' ex.pk %}">Delete</a>
+                        {% if request.user.is_autenticated %}
+                            <a href="
+    {% url 'webapp:exercise_update' ex.pk %}">Update</a>
+                            <a href="
+    {% url 'webapp:exercise_delete' ex.pk %}">Delete</a>
+                        {% endif %}
                 </div>
             </div>
         </div>

@@ -3,11 +3,16 @@
 {% block nav %}
     <li class="nav-item">
         <a class="nav-link" href="
-{% url 'project_add' %}">Create new project</a>
+{% url 'webapp:index' %}">Exercises</a>
     </li>
+    {% if request.user.is_authenticated %}
     <li class="nav-item">
         <a class="nav-link" href="
-{% url 'index' %}">Exercises</a>
+{% url 'webapp:project_add' %}">Create new project</a>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+        {% include 'partial/simple_search.html' %}
     </li>
 {% endblock %}
 
@@ -28,4 +33,7 @@
         </div>
     {% endfor %}
     </div>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 {% endblock %}
