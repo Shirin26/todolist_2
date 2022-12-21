@@ -13,6 +13,9 @@ class Project(models.Model):
     project_description = models.TextField(
         max_length=3000,
         verbose_name='Описание проекта')
+    is_deleted = models.BooleanField(
+        default=False)
+
 
     def get_absolute_url(self):
         return reverse('webapp:project_view',

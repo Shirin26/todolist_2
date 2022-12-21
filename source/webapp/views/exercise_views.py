@@ -1,18 +1,23 @@
 from django.contrib.auth.mixins import \
     LoginRequiredMixin
 from django.db.models import Q
+from django.http import Http404
 from django.utils.http import urlencode
 from django.shortcuts import get_object_or_404, reverse
 from webapp.models import Exercise, Project
 from webapp.forms import ExerciseForm, SimpleSearchForm
-from django.views.generic import TemplateView, \
-    View, ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, \
+    DetailView, CreateView, UpdateView, \
+    DeleteView, TemplateView
+
 
 class IndexView(ListView):
     template_name = 'exercise/index.html'
     context_object_name = 'exercises'
     model = Exercise
     ordering = ('-created_at',)
+    queryset = Exercise.objects.filter(
+        project__is_deleted=False)
     paginate_by = 10
     paginate_orphans = 2
 
@@ -50,7 +55,11 @@ class ExerciseView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['exercise'] = get_object_or_404(Exercise, pk=kwargs['pk'])
+        exercise = get_object_or_404(
+            Exercise, pk=kwargs['pk'])
+        context['exercise'] = exercise
+        if exercise.project.is_deleted:
+            raise Http404
         return context
 
 
@@ -59,6 +68,8 @@ class ProjectExerciseCreateView(
     template_name = 'exercise/create.html'
     model = Exercise
     form_class = ExerciseForm
+    queryset = Exercise.objects.filter(
+        project__is_deleted=False)
 
     def get_success_url(self):
         return reverse('webapp:project_view',
@@ -77,6 +88,8 @@ class ExerciseUpdateView(LoginRequiredMixin,
     template_name = 'exercise/exercise_update.html'
     form_class = ExerciseForm
     context_object_name = 'exercise'
+    queryset = Exercise.objects.filter(
+        project__is_deleted=False)
 
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={
@@ -86,6 +99,8 @@ class ExerciseUpdateView(LoginRequiredMixin,
 class ExerciseDeleteView(LoginRequiredMixin,
                          DeleteView):
     model = Exercise
+    queryset = Exercise.objects.filter(
+        project__is_deleted=False)
 
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)

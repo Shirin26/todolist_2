@@ -33,6 +33,9 @@
     <p class="card-text" style="white-space:
     pre-wrap">Описание:
         {{ project.project_description }}</p>
+      <a href="
+{% url 'webapp:project_delete' project.pk %}"
+         class="btn btn-danger">Delete</a>
   </div>
 </div>
     <h3>Exercises:</h3>

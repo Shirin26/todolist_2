@@ -13,7 +13,6 @@ class IndexProjectViews(ListView):
     template_name = 'project/index_project.html'
     context_object_name = 'projects'
     model = Project
-    ordering = ('-start_date',)
     paginate_by = 2
     paginate_orphans = 2
 
@@ -51,12 +50,15 @@ class IndexProjectViews(ListView):
                 Q(
                     name__icontains=self.search_value) | Q(
                     project_description__icontains=self.search_value))
-        return queryset
+        return queryset.filter(
+            is_deleted=False).order_by('-start_date')
 
 
 class ProjectView(DetailView):
     template_name = 'project/project_view.html'
     model = Project
+    queryset = Project.objects.filter(
+        is_deleted=False)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -87,4 +89,15 @@ class ProjectDeleteView(LoginRequiredMixin,
     template_name = 'project/project_delete.html'
     model = Project
     context_object_name = 'project'
-    success_url = reverse_lazy('exercise_project_index')
+    success_url = reverse_lazy(
+        'webapp:exercise_project_index')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        self.object.is_deleted = True
+        self.object.save()
+        return redirect(success_url)
