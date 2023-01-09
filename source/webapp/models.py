@@ -21,10 +21,17 @@ class Project(models.Model):
         related_name='projects', blank=True,
         verbose_name='Пользователь')
 
+    def __str__(self):
+        return f'{self.id}: {self.name}'
 
     def get_absolute_url(self):
         return reverse('webapp:project_view',
                        kwargs={'pk': self.pk})
+
+    class Meta:
+        permissions = [('add_user_in_project',
+                        'Добавить пользователя '
+                        'в проект'),]
 
 
 class Type(models.Model):

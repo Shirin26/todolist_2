@@ -1,14 +1,14 @@
-from django.contrib.auth.mixins import \
-    LoginRequiredMixin
+
 from django.db.models import Q
 from django.http import Http404
 from django.utils.http import urlencode
 from django.shortcuts import get_object_or_404, reverse
 from webapp.models import Exercise, Project
 from webapp.forms import ExerciseForm, SimpleSearchForm
-from django.views.generic import ListView, \
-    DetailView, CreateView, UpdateView, \
+from django.views.generic import ListView, CreateView, UpdateView, \
     DeleteView, TemplateView
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
 
 
 class IndexView(ListView):
@@ -63,13 +63,19 @@ class ExerciseView(TemplateView):
         return context
 
 
-class ProjectExerciseCreateView(
-    LoginRequiredMixin, CreateView):
+class ProjectExerciseCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'exercise/create.html'
     model = Exercise
     form_class = ExerciseForm
     queryset = Exercise.objects.filter(
         project__is_deleted=False)
+    permission_required = 'webapp.add_exercise'
+
+    def has_permission(self):
+        project = get_object_or_404(Project,
+                                    pk=self.kwargs['pk'])
+        return super().has_permission() and self.request.user in project.users.all()
+
 
     def get_success_url(self):
         return reverse('webapp:project_view',
@@ -82,7 +88,7 @@ class ProjectExerciseCreateView(
         return super().form_valid(form)
 
 
-class ExerciseUpdateView(LoginRequiredMixin,
+class ExerciseUpdateView(PermissionRequiredMixin,
                          UpdateView):
     model = Exercise
     template_name = 'exercise/exercise_update.html'
@@ -90,17 +96,26 @@ class ExerciseUpdateView(LoginRequiredMixin,
     context_object_name = 'exercise'
     queryset = Exercise.objects.filter(
         project__is_deleted=False)
+    permission_required = 'webapp.change_exercise'
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().project.users.all()
 
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={
             'pk': self.object.project.pk})
 
 
-class ExerciseDeleteView(LoginRequiredMixin,
+class ExerciseDeleteView(PermissionRequiredMixin,
                          DeleteView):
     model = Exercise
     queryset = Exercise.objects.filter(
         project__is_deleted=False)
+    permission_required = 'webapp.delete_exercise'
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().project.users.all()
+
 
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)

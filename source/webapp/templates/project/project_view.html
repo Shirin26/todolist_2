@@ -1,30 +1,38 @@
 {% extends 'base.html' %}
 
 {% block nav %}
-    <li class="nav-item">
-        <a class="nav-link" href="
-{% url 'webapp:change_users' project.pk %}">Change Users ( + )</a>
-    </li>
-    {% if request.user.is_authenticated %}
-    <li class="nav-item">
-        <a class="nav-link" href="
-{% url 'webapp:project_add' %}">Create new project</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="
-{% url 'webapp:project_update' project.pk %}">Update
-            project</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="
-{% url 'webapp:project_delete' project.pk %}">Delete
-            project</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="
-{% url 'webapp:project_exercise_add' project.pk %}">Create new
-            exercise</a>
-    </li>
+    {% if perms.webapp.add_user_in_project and request.user in project.users.all %}
+        <li class="nav-item">
+            <a class="nav-link" href="
+    {% url 'webapp:change_users' project.pk %}">Change Users ( + )</a>
+        </li>
+    {% endif %}
+    {% if perms.webapp.add_project %}
+        <li class="nav-item">
+            <a class="nav-link" href="
+    {% url 'webapp:project_add' %}">Create new project</a>
+        </li>
+    {% endif %}
+    {% if perms.webapp.change_project %}
+        <li class="nav-item">
+            <a class="nav-link" href="
+    {% url 'webapp:project_update' project.pk %}">Update
+                project</a>
+        </li>
+    {% endif %}
+    {% if perms.webapp.delete_project %}
+        <li class="nav-item">
+            <a class="nav-link" href="
+    {% url 'webapp:project_delete' project.pk %}">Delete
+                project</a>
+        </li>
+    {% endif %}
+    {% if perms.webapp.add_exercise and request.user in exercises.project.users.all %}
+        <li class="nav-item">
+            <a class="nav-link" href="
+    {% url 'webapp:project_exercise_add' project.pk %}">Create new
+                exercise</a>
+        </li>
     {% endif %}
 {% endblock %}
 
@@ -42,9 +50,11 @@
             {{ user.username }}
             {% if not forloop.last %},
             {% endif %}{% endfor %}</p>
+  {% if perms.webapp.add_project %}
       <a href="
 {% url 'webapp:project_delete' project.pk %}"
          class="btn btn-danger">Delete</a>
+  {% endif %}
   </div>
 </div>
     <h3>Exercises:</h3>

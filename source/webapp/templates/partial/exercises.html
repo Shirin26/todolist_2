@@ -14,11 +14,12 @@
                         {% endfor %}</p>
                         <p
                                 class="card-text">Проект: {{ ex.project.name }}</p>
-                        {% if request.user.is_autenticated %}
+                        {% if perms.webapp.change_exercise and request.user in project.users.all %}
                             <a href="
     {% url 'webapp:exercise_update' ex.pk %}">Update</a>
-                            <a href="
-    {% url 'webapp:exercise_delete' ex.pk %}">Delete</a>
+                        {% endif %}
+                        {% if perms.webapp.delete_exercise and request.user in project.users.all %}
+                            <a href="{% url 'webapp:exercise_delete' ex.pk %}">Delete</a>
                         {% endif %}
                 </div>
             </div>
