@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
-from django.shortcuts import redirect
+from django.shortcuts import redirect, \
+    get_object_or_404
 from webapp.models import Project
 from django.views.generic import ListView, \
     DetailView, CreateView, UpdateView, DeleteView
@@ -76,6 +77,10 @@ class ProjectCreateView(LoginRequiredMixin,
     model = Project
     form_class = ProjectForm
 
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.users.add(self.request.user)
+        return super().form_valid(form)
 
 class ProjectUpdateView(LoginRequiredMixin,
                         UpdateView):
