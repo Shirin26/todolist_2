@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 
@@ -15,6 +16,10 @@ class Project(models.Model):
         verbose_name='Описание проекта')
     is_deleted = models.BooleanField(
         default=False)
+    users = models.ManyToManyField(
+        get_user_model(),
+        related_name='projects', blank=True,
+        verbose_name='Пользователь')
 
 
     def get_absolute_url(self):

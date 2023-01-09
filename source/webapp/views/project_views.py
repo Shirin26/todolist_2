@@ -3,7 +3,8 @@ from django.shortcuts import redirect
 from webapp.models import Project
 from django.views.generic import ListView, \
     DetailView, CreateView, UpdateView, DeleteView
-from webapp.forms import SimpleSearchForm, ProjectForm
+from webapp.forms import SimpleSearchForm, \
+    ProjectForm, ChangeUsersForm
 from django.utils.http import urlencode
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -101,3 +102,10 @@ class ProjectDeleteView(LoginRequiredMixin,
         self.object.is_deleted = True
         self.object.save()
         return redirect(success_url)
+
+
+class ChangeUsersView(UpdateView):
+    model = Project
+    form_class = ChangeUsersForm
+    template_name = 'project/change_user.html'
+

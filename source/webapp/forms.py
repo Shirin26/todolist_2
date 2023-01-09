@@ -29,13 +29,19 @@ class ExerciseForm(forms.ModelForm):
                            ValidationError(
                                "Please don't use bad words"))
         return description
+
+
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        exclude = ['is_deleted']
-            # fields = ['start_date', 'end_date',
-            #           'name', 'project_description']
+        fields = ['start_date', 'end_date',
+                  'name', 'project_description']
 
+
+class ChangeUsersForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['users']
 
 
 class SimpleSearchForm(forms.Form):

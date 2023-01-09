@@ -31,14 +31,19 @@
             <li class="nav-item">
                 <a class="nav-link btn btn-dark
             text-light mx-3" href="
-        {% url 'accounts:login' %}?next=
-{{ request.get_full_path }}">Войти</a>
+        {% url 'accounts:login' %}?next={% if request.GET.next %}
+{{ request.GET.next }}{% else %}
+{{ request.get_full_path }}
+{% endif %}">Войти</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link mx-3 btn
                 btn-outline-secondary" href="
 {% url 'accounts:create' %}?next=
-{{ request.get_full_path }}">Регистрация</a>
+{% if request.GET.next %}
+{{ request.GET.next }}{% else %}
+{{ request.get_full_path }}
+{% endif %}">Регистрация</a>
             </li>
       {% endif %}
       </ul>
