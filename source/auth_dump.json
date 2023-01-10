@@ -1,0 +1,262 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Project Manager",
+    "permissions": [
+      [
+        "add_exercise",
+        "webapp",
+        "exercise"
+      ],
+      [
+        "change_exercise",
+        "webapp",
+        "exercise"
+      ],
+      [
+        "delete_exercise",
+        "webapp",
+        "exercise"
+      ],
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_user_in_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Team Lead",
+    "permissions": [
+      [
+        "add_exercise",
+        "webapp",
+        "exercise"
+      ],
+      [
+        "change_exercise",
+        "webapp",
+        "exercise"
+      ],
+      [
+        "delete_exercise",
+        "webapp",
+        "exercise"
+      ],
+      [
+        "add_user_in_project",
+        "webapp",
+        "project"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Developer",
+    "permissions": [
+      [
+        "add_exercise",
+        "webapp",
+        "exercise"
+      ],
+      [
+        "change_exercise",
+        "webapp",
+        "exercise"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$rT4nu1URu3kwpkX70XHoCs$386zThIAiJm5rmUufo4AAAyDtNn6WB8XgbtnBUBKj6E=",
+    "last_login": "2023-01-09T17:44:33.293Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-25T09:39:48.204Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$XXuJRrZhnJkyXi1g5gjMsy$FKJtOqx2n78anDjc/LVnfDxP6v2eNuB6Nu7izj0k8xU=",
+    "last_login": "2022-12-06T13:35:07.775Z",
+    "is_superuser": true,
+    "username": "admin2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-12-06T13:34:02.345Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 20,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$qgbE7BQLzwfNf84o1QAPjw$6d0RObD5g0SZbcLgPNjxd2Ki/BC3bdN5ywmCpklWTa0=",
+    "last_login": "2023-01-09T19:04:40.507Z",
+    "is_superuser": false,
+    "username": "sima",
+    "first_name": "sima",
+    "last_name": "",
+    "email": "ddddddd@gggg.llll",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-09T11:24:28Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 21,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$TOasD36FJBQcYcm9Ec3vO7$cx5thXZKKEufetv5CfbWM17eP7n/0qnaO3cqoqQarXM=",
+    "last_login": "2023-01-09T17:45:10.774Z",
+    "is_superuser": false,
+    "username": "lily",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-09T13:46:43Z",
+    "groups": [
+      [
+        "Project Manager"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 22,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$cnjKj3li0ttXGxfppRPN4L$msF9OcrHWL4XeUNLW/0B9TaE00lVmTMfKzaAZnAGHs4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sara",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-09T13:47:23Z",
+    "groups": [
+      [
+        "Team Lead"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 23,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$Zc1rXVZLXy0LJjpziYTtwc$8wFPlr5MxxL2U8mG81/j0rHmkiVxb2i7znJ5sr98IVY=",
+    "last_login": "2023-01-09T13:51:41.869Z",
+    "is_superuser": false,
+    "username": "tima",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-09T13:47:50Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 24,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$WU9f7mChl7lsHP0dotpjWd$S4cD/aet5GIYpWnlTd+QF8ccQJRB2Ycen9t16Wrgho8=",
+    "last_login": "2023-01-09T19:09:11.360Z",
+    "is_superuser": false,
+    "username": "tom",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-09T13:48:18Z",
+    "groups": [
+      [
+        "Project Manager"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 25,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$jQhjbPGO5XnOch0Cz4OrA9$0vq3CFMMCTlC6mYDJeb0YfKSFMH89ScZlg5wLXHpsTs=",
+    "last_login": "2023-01-09T13:49:54.819Z",
+    "is_superuser": false,
+    "username": "sam",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-09T13:49:02Z",
+    "groups": [
+      [
+        "Team Lead"
+      ]
+    ],
+    "user_permissions": []
+  }
+}
+]

@@ -6,7 +6,9 @@
         "start_date": "2022-12-06",
         "end_date": null,
         "name": "homework54",
-        "project_description": "dfm/mmm;mmdvmvmvmvmv"
+        "project_description": "dfm/mmm;mmdvmvmvmvmv",
+        "is_deleted": false,
+        "users": []
     }
 },
 {
@@ -16,17 +18,14 @@
         "start_date": "2022-12-05",
         "end_date": null,
         "name": "work 1",
-        "project_description": "dvsdv k,kj."
-    }
-},
-{
-    "model": "webapp.project",
-    "pk": 10,
-    "fields": {
-        "start_date": "2023-10-10",
-        "end_date": null,
-        "name": "updated project",
-        "project_description": "vvvvvvvvvvvv"
+        "project_description": "dvsdv k,kj.",
+        "is_deleted": false,
+        "users": [
+            20,
+            22,
+            24,
+            25
+        ]
     }
 },
 {
@@ -36,7 +35,195 @@
         "start_date": "2022-10-15",
         "end_date": null,
         "name": "iiiiiiiiii",
-        "project_description": "iiiiiiiiiiii"
+        "project_description": "iiiiiiiiiiii",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 15,
+    "fields": {
+        "start_date": "2022-12-15",
+        "end_date": null,
+        "name": "test 3",
+        "project_description": "cvcv",
+        "is_deleted": false,
+        "users": [
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 16,
+    "fields": {
+        "start_date": "2022-10-10",
+        "end_date": null,
+        "name": "rerer",
+        "project_description": "sfsfsf",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 17,
+    "fields": {
+        "start_date": "2022-12-12",
+        "end_date": null,
+        "name": "tetetetete",
+        "project_description": "xc c c xvxdcvx",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 18,
+    "fields": {
+        "start_date": "2022-12-10",
+        "end_date": null,
+        "name": "rerereerxv",
+        "project_description": "xvxvxvxv",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 19,
+    "fields": {
+        "start_date": "2022-12-26",
+        "end_date": null,
+        "name": "hhhhhhhhhhh",
+        "project_description": "hhhhhhhhhhhhh",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 20,
+    "fields": {
+        "start_date": "2022-12-15",
+        "end_date": null,
+        "name": "jmhmhm",
+        "project_description": "mhmhm",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 21,
+    "fields": {
+        "start_date": "2022-12-22",
+        "end_date": null,
+        "name": "aaaaa11111",
+        "project_description": "aaaaaaa11111111",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 22,
+    "fields": {
+        "start_date": "2022-12-23",
+        "end_date": null,
+        "name": "for delete",
+        "project_description": "sdsdsdsdsd",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 23,
+    "fields": {
+        "start_date": "2022-12-21",
+        "end_date": null,
+        "name": "for test",
+        "project_description": "ggggg",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 24,
+    "fields": {
+        "start_date": "2022-12-22",
+        "end_date": null,
+        "name": "aaaaaaa",
+        "project_description": "aaaaaaaaa",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 25,
+    "fields": {
+        "start_date": "2022-12-25",
+        "end_date": null,
+        "name": "sssssss",
+        "project_description": "ssssssss",
+        "is_deleted": true,
+        "users": []
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 26,
+    "fields": {
+        "start_date": "2023-01-01",
+        "end_date": null,
+        "name": "sima's project",
+        "project_description": "zzzzzzzz",
+        "is_deleted": false,
+        "users": [
+            20
+        ]
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 27,
+    "fields": {
+        "start_date": "2023-10-10",
+        "end_date": null,
+        "name": "project 12",
+        "project_description": "zzczczc",
+        "is_deleted": true,
+        "users": [
+            2,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+        ]
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 28,
+    "fields": {
+        "start_date": "2023-01-01",
+        "end_date": null,
+        "name": "lily's project",
+        "project_description": "xvxvvvvvvvvvvvvvvv",
+        "is_deleted": true,
+        "users": [
+            1,
+            20,
+            21,
+            24,
+            25
+        ]
     }
 },
 {
@@ -165,11 +352,11 @@
     "model": "webapp.exercise",
     "pk": 19,
     "fields": {
-        "title": "exercise 7",
-        "description": "scascs",
+        "title": "Exercise 7",
+        "description": "scascs4 444444",
         "status": 2,
         "created_at": "2022-11-30T11:58:41.989Z",
-        "updated_at": "2022-11-30T11:58:41.989Z",
+        "updated_at": "2022-12-15T09:00:02.942Z",
         "project": 1,
         "types": [
             7,
@@ -259,37 +446,6 @@
 },
 {
     "model": "webapp.exercise",
-    "pk": 26,
-    "fields": {
-        "title": "Bug_2",
-        "description": "dvsdgsdgsdg",
-        "status": 1,
-        "created_at": "2022-12-02T08:27:16.122Z",
-        "updated_at": "2022-12-07T06:46:33.704Z",
-        "project": 2,
-        "types": [
-            8
-        ]
-    }
-},
-{
-    "model": "webapp.exercise",
-    "pk": 27,
-    "fields": {
-        "title": "Yato_updated",
-        "description": "zcxczxcxcxcvbnvbvbmm",
-        "status": 1,
-        "created_at": "2022-12-04T17:07:57.933Z",
-        "updated_at": "2022-12-08T08:11:59.725Z",
-        "project": 2,
-        "types": [
-            7,
-            9
-        ]
-    }
-},
-{
-    "model": "webapp.exercise",
     "pk": 28,
     "fields": {
         "title": "For homework53",
@@ -300,22 +456,6 @@
         "project": 2,
         "types": [
             7
-        ]
-    }
-},
-{
-    "model": "webapp.exercise",
-    "pk": 30,
-    "fields": {
-        "title": "Exercise 100",
-        "description": "SACsdassfsfaafa hgmgmhjghjh 11111",
-        "status": 1,
-        "created_at": "2022-12-05T17:04:58.392Z",
-        "updated_at": "2022-12-07T06:48:13.470Z",
-        "project": 2,
-        "types": [
-            7,
-            9
         ]
     }
 },
@@ -336,14 +476,14 @@
 },
 {
     "model": "webapp.exercise",
-    "pk": 34,
+    "pk": 40,
     "fields": {
-        "title": "For project 12 (2)",
-        "description": "zxdvzdxv",
-        "status": 2,
-        "created_at": "2022-12-07T15:43:47.807Z",
-        "updated_at": "2022-12-07T15:43:47.807Z",
-        "project": 12,
+        "title": "Rain",
+        "description": "vcvcvc",
+        "status": 1,
+        "created_at": "2022-12-15T13:34:07.805Z",
+        "updated_at": "2022-12-15T13:34:07.805Z",
+        "project": 15,
         "types": [
             7
         ]
@@ -351,14 +491,30 @@
 },
 {
     "model": "webapp.exercise",
-    "pk": 35,
+    "pk": 41,
     "fields": {
-        "title": "Updated exercise3",
-        "description": "Updated exercise2",
+        "title": "Rain 23",
+        "description": "",
         "status": 2,
-        "created_at": "2022-12-07T15:47:41.046Z",
-        "updated_at": "2022-12-08T13:38:27.750Z",
-        "project": 10,
+        "created_at": "2022-12-15T13:34:28.530Z",
+        "updated_at": "2022-12-15T13:35:02.460Z",
+        "project": 15,
+        "types": [
+            7,
+            9
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 42,
+    "fields": {
+        "title": "Lalalalalal",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-12-15T13:35:51.996Z",
+        "updated_at": "2022-12-15T13:35:51.996Z",
+        "project": 15,
         "types": [
             7
         ]
@@ -366,16 +522,77 @@
 },
 {
     "model": "webapp.exercise",
-    "pk": 36,
+    "pk": 43,
     "fields": {
-        "title": "Test 2",
-        "description": "k;jk;j;jk;kj;",
-        "status": 3,
-        "created_at": "2022-12-08T13:40:36.278Z",
-        "updated_at": "2022-12-08T13:40:36.278Z",
-        "project": 12,
+        "title": "For test 111",
+        "description": "",
+        "status": 2,
+        "created_at": "2022-12-21T07:05:08.089Z",
+        "updated_at": "2022-12-21T07:05:08.089Z",
+        "project": 23,
+        "types": [
+            8
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 44,
+    "fields": {
+        "title": "Sssssss",
+        "description": "sssssssssssss",
+        "status": 2,
+        "created_at": "2022-12-21T07:12:22.655Z",
+        "updated_at": "2022-12-21T07:12:22.655Z",
+        "project": 25,
         "types": [
             7
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 45,
+    "fields": {
+        "title": "Dddddddd",
+        "description": "ddddddd",
+        "status": 1,
+        "created_at": "2022-12-21T07:12:37.304Z",
+        "updated_at": "2022-12-21T07:12:37.304Z",
+        "project": 25,
+        "types": [
+            8
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 46,
+    "fields": {
+        "title": "Tom's exercise",
+        "description": "ddddddddddddddddd",
+        "status": 1,
+        "created_at": "2023-01-09T17:16:44.192Z",
+        "updated_at": "2023-01-09T17:16:44.192Z",
+        "project": 2,
+        "types": [
+            7
+        ]
+    }
+},
+{
+    "model": "webapp.exercise",
+    "pk": 47,
+    "fields": {
+        "title": "Sima's exercise",
+        "description": "cdcscs",
+        "status": 1,
+        "created_at": "2023-01-09T18:24:10.894Z",
+        "updated_at": "2023-01-09T19:08:06.778Z",
+        "project": 26,
+        "types": [
+            8,
+            9
         ]
     }
 },
@@ -384,7 +601,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$390000$rT4nu1URu3kwpkX70XHoCs$386zThIAiJm5rmUufo4AAAyDtNn6WB8XgbtnBUBKj6E=",
-        "last_login": "2022-12-05T16:56:36.035Z",
+        "last_login": "2023-01-09T17:44:33.293Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -412,6 +629,126 @@
         "is_active": true,
         "date_joined": "2022-12-06T13:34:02.345Z",
         "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 20,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$qgbE7BQLzwfNf84o1QAPjw$6d0RObD5g0SZbcLgPNjxd2Ki/BC3bdN5ywmCpklWTa0=",
+        "last_login": "2023-01-09T19:04:40.507Z",
+        "is_superuser": false,
+        "username": "sima",
+        "first_name": "sima",
+        "last_name": "",
+        "email": "ddddddd@gggg.llll",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-01-09T11:24:28Z",
+        "groups": [
+            3
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 21,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$TOasD36FJBQcYcm9Ec3vO7$cx5thXZKKEufetv5CfbWM17eP7n/0qnaO3cqoqQarXM=",
+        "last_login": "2023-01-09T17:45:10.774Z",
+        "is_superuser": false,
+        "username": "lily",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-01-09T13:46:43Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 22,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$cnjKj3li0ttXGxfppRPN4L$msF9OcrHWL4XeUNLW/0B9TaE00lVmTMfKzaAZnAGHs4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sara",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-01-09T13:47:23Z",
+        "groups": [
+            2
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 23,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$Zc1rXVZLXy0LJjpziYTtwc$8wFPlr5MxxL2U8mG81/j0rHmkiVxb2i7znJ5sr98IVY=",
+        "last_login": "2023-01-09T13:51:41.869Z",
+        "is_superuser": false,
+        "username": "tima",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-01-09T13:47:50Z",
+        "groups": [
+            3
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 24,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$WU9f7mChl7lsHP0dotpjWd$S4cD/aet5GIYpWnlTd+QF8ccQJRB2Ycen9t16Wrgho8=",
+        "last_login": "2023-01-09T19:09:11.360Z",
+        "is_superuser": false,
+        "username": "tom",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-01-09T13:48:18Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 25,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$jQhjbPGO5XnOch0Cz4OrA9$0vq3CFMMCTlC6mYDJeb0YfKSFMH89ScZlg5wLXHpsTs=",
+        "last_login": "2023-01-09T13:49:54.819Z",
+        "is_superuser": false,
+        "username": "sam",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-01-09T13:49:02Z",
+        "groups": [
+            2
+        ],
         "user_permissions": []
     }
 }
